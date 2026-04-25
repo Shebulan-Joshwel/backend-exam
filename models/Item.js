@@ -27,10 +27,11 @@ const itemSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
-    Discount: {
+    discountPercentage: {
       type: Number,
-      required: [true, "Description is required"],
-      trim: true,
+      required: [true, "Discount percentage is required"],
+      min: [0, "Discount percentage cannot be negative"],
+      max: [100, "Discount percentage cannot exceed 100"],
     },
   },
   { timestamps: true }
